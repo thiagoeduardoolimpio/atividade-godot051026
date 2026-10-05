@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/cenario/plataforma.png" id="1_plat"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plat"]
+size = Vector2(48, 8)
+
+[node name="plataforma" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-24, 0)
+texture = ExtResource("1_plat")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_plat")
+one_way_collision = true

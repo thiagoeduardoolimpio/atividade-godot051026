@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://c27eg18gdynvy"]
+
+[ext_resource type="Script" uid="uid://c7v76cy6uvf1m" path="res://player.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://c4p3yss7cwnec" path="res://assets/mochi/idle.png" id="2_idle"]
+[ext_resource type="Texture2D" uid="uid://b8jh75tgodj8f" path="res://assets/mochi/correndo.png" id="3_run"]
+[ext_resource type="Texture2D" uid="uid://c7o4u3qkuo507" path="res://assets/mochi/pulando.png" id="4_jump"]
+
+[sub_resource type="AtlasTexture" id="Atlas_idle0"]
+atlas = ExtResource("2_idle")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="Atlas_idle1"]
+atlas = ExtResource("2_idle")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="Atlas_run0"]
+atlas = ExtResource("3_run")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="Atlas_run1"]
+atlas = ExtResource("3_run")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="Atlas_run2"]
+atlas = ExtResource("3_run")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="Atlas_run3"]
+atlas = ExtResource("3_run")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("Atlas_idle0")
+}, {
+"duration": 1.0,
+"texture": SubResource("Atlas_idle1")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_jump")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("Atlas_run0")
+}, {
+"duration": 1.0,
+"texture": SubResource("Atlas_run1")
+}, {
+"duration": 1.0,
+"texture": SubResource("Atlas_run2")
+}, {
+"duration": 1.0,
+"texture": SubResource("Atlas_run3")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p1"]
+radius = 7.0
+height = 16.0
+
+[node name="player1" type="CharacterBody2D" unique_id=337089823]
+collision_layer = 2
+script = ExtResource("1_script")
+nome = "Mr. Mochi"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=240282235]
+sprite_frames = SubResource("SpriteFrames_p1")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=760673359]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_p1")

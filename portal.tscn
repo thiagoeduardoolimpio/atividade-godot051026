@@ -1,0 +1,65 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://portal.gd" id="0_script"]
+[ext_resource type="Texture2D" path="res://assets/portal/frame-1.png" id="1_fr"]
+[ext_resource type="Texture2D" path="res://assets/portal/frame-2.png" id="2_fr"]
+[ext_resource type="Texture2D" path="res://assets/portal/frame-3.png" id="3_fr"]
+[ext_resource type="Texture2D" path="res://assets/portal/frame-4.png" id="4_fr"]
+[ext_resource type="Texture2D" path="res://assets/portal/frame-5.png" id="5_fr"]
+[ext_resource type="Texture2D" path="res://assets/portal/frame-6.png" id="6_fr"]
+[ext_resource type="Texture2D" path="res://assets/portal/frame-7.png" id="7_fr"]
+[ext_resource type="Texture2D" path="res://assets/portal/frame-8.png" id="8_fr"]
+[ext_resource type="Texture2D" path="res://assets/portal/frame-9.png" id="9_fr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_portal"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 18.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_portal"]
+size = Vector2(60, 300)
+
+[node name="portal" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+scale = Vector2(0.2, 0.2)
+script = ExtResource("0_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_portal")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_portal")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

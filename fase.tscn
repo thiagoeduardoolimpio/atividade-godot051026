@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://bnry52mf1yjcx"]
+
+[ext_resource type="PackedScene" path="res://player1.tscn" id="1_p1"]
+[ext_resource type="PackedScene" path="res://player2.tscn" id="2_p2"]
+[ext_resource type="PackedScene" path="res://portal.tscn" id="3_portal"]
+[ext_resource type="PackedScene" path="res://plataforma.tscn" id="4_plat"]
+[ext_resource type="Texture2D" uid="uid://cqywi73hrjhiq" path="res://assets/cenario/chao.png" id="5_chao"]
+[ext_resource type="Texture2D" uid="uid://bthr0pkklyxce" path="res://assets/cenario/plataforma_topo.png" id="6_topo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_parede"]
+size = Vector2(16, 1400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chao"]
+size = Vector2(352, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_topo"]
+size = Vector2(96, 8)
+
+[node name="fase" type="Node2D" unique_id=1962887673]
+
+[node name="fundo" type="ColorRect" parent="." unique_id=159597021]
+offset_right = 352.0
+offset_bottom = 600.0
+color = Color(0.231373, 0.231373, 0.231373, 1)
+
+[node name="paredeEsquerda" type="StaticBody2D" parent="." unique_id=75666455]
+position = Vector2(-8, 300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paredeEsquerda" unique_id=125157092]
+shape = SubResource("RectangleShape2D_parede")
+
+[node name="paredeDireita" type="StaticBody2D" parent="." unique_id=1873339909]
+position = Vector2(360, 300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paredeDireita" unique_id=1325851559]
+shape = SubResource("RectangleShape2D_parede")
+
+[node name="chao" type="StaticBody2D" parent="." unique_id=1087251074]
+position = Vector2(0, 552)
+
+[node name="Sprite2D" type="Sprite2D" parent="chao" unique_id=896814880]
+texture = ExtResource("5_chao")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chao" unique_id=869726951]
+position = Vector2(176, 24)
+shape = SubResource("RectangleShape2D_chao")
+
+[node name="plataformaTopo" type="StaticBody2D" parent="." unique_id=677302626]
+position = Vector2(176, 84)
+
+[node name="Sprite2D" type="Sprite2D" parent="plataformaTopo" unique_id=100828449]
+position = Vector2(-48, 0)
+texture = ExtResource("6_topo")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataformaTopo" unique_id=1234249899]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_topo")
+one_way_collision = true
+
+[node name="plataformas" type="Node2D" parent="." unique_id=547397105]
+
+[node name="plat_esq1" parent="plataformas" unique_id=227108755 instance=ExtResource("4_plat")]
+position = Vector2(56, 500)
+
+[node name="plat_esq2" parent="plataformas" unique_id=1933510223 instance=ExtResource("4_plat")]
+position = Vector2(112, 448)
+
+[node name="plat_esq3" parent="plataformas" unique_id=991986299 instance=ExtResource("4_plat")]
+position = Vector2(60, 396)
+
+[node name="plat_esq4" parent="plataformas" unique_id=1435535656 instance=ExtResource("4_plat")]
+position = Vector2(116, 344)
+
+[node name="plat_esq5" parent="plataformas" unique_id=1917714136 instance=ExtResource("4_plat")]
+position = Vector2(64, 292)
+
+[node name="plat_esq6" parent="plataformas" unique_id=220137290 instance=ExtResource("4_plat")]
+position = Vector2(120, 240)
+
+[node name="plat_esq7" parent="plataformas" unique_id=26508494 instance=ExtResource("4_plat")]
+position = Vector2(72, 188)
+
+[node name="plat_esq8" parent="plataformas" unique_id=304521775 instance=ExtResource("4_plat")]
+position = Vector2(128, 136)
+
+[node name="plat_dir1" parent="plataformas" unique_id=944713376 instance=ExtResource("4_plat")]
+position = Vector2(296, 500)
+
+[node name="plat_dir2" parent="plataformas" unique_id=692880731 instance=ExtResource("4_plat")]
+position = Vector2(240, 448)
+
+[node name="plat_dir3" parent="plataformas" unique_id=1413387181 instance=ExtResource("4_plat")]
+position = Vector2(292, 396)
+
+[node name="plat_dir4" parent="plataformas" unique_id=833686074 instance=ExtResource("4_plat")]
+position = Vector2(236, 344)
+
+[node name="plat_dir5" parent="plataformas" unique_id=1700198512 instance=ExtResource("4_plat")]
+position = Vector2(288, 292)
+
+[node name="plat_dir6" parent="plataformas" unique_id=1743760253 instance=ExtResource("4_plat")]
+position = Vector2(232, 240)
+
+[node name="plat_dir7" parent="plataformas" unique_id=1394135485 instance=ExtResource("4_plat")]
+position = Vector2(280, 188)
+
+[node name="plat_dir8" parent="plataformas" unique_id=1206074551 instance=ExtResource("4_plat")]
+position = Vector2(224, 136)
+
+[node name="portal" parent="." unique_id=242378594 instance=ExtResource("3_portal")]
+position = Vector2(176, 52)
+
+[node name="player1" parent="." unique_id=1228313378 instance=ExtResource("1_p1")]
+position = Vector2(40, 534)
+
+[node name="player2" parent="." unique_id=307661754 instance=ExtResource("2_p2")]
+position = Vector2(312, 534)
