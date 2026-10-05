@@ -11,4 +11,4 @@ Dois personagens disputam quem chega primeiro ao portal, no topo da fase.
 (Onion Lad) Player2: setas direita, esquerda e cima
 
 
-feito por: thiagoeduardoolimpio(github)
+feito por: thiagoeduardoolimpio(github) & raphaeloliveira506-ctrl(github)
